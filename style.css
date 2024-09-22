@@ -10,7 +10,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -57,19 +57,30 @@ h2 {
   margin: 0 auto;
 }
 
-.row__column{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.row__column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-
 
 p {
   line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .no-cursor {
-    cursor: no-drop;
+  cursor: no-drop;
+}
+
+.text--purple {
+  color: #7432d6;
 }
 
 /* NAV */
@@ -90,15 +101,10 @@ nav {
 
 .nav__link {
   margin-left: 16px;
-  text-decoration: none;
   font-size: 20px;
   color: #7432d6;
   font-weight: bold;
   padding: 8px;
-}
-
-.nav__link:hover {
-  text-decoration: underline;
 }
 
 .nav__link--primary {
@@ -122,11 +128,64 @@ li {
   list-style-type: none;
 }
 
-/* HEADER */
-
-.text--purple {
-  color: #7432d6;
+.btn__menu {
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  border: none;
+  display: none;
 }
+
+.menu__backdrop {
+  position: absolute;
+  background-color: #242424;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.menu--open .menu__backdrop {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu--open {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__list {
+  padding: 28px 0;
+}
+
+.menu__link {
+  color: white;
+  font-size: 40px;
+}
+
+.btn__menu--close {
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 8px;
+}
+
+/* LANDING */
 
 #landing {
   background-color: rgba(115, 66, 214, 0.1);
@@ -203,13 +262,13 @@ header {
 
 .highlight__wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .highlight {
   padding: 0 24px;
   width: calc(100% / 3);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -237,6 +296,7 @@ header {
 
 .highlight__sub-title {
   margin: 20px 0;
+  text-align: center;
 }
 
 /* FEATURES */
@@ -257,10 +317,10 @@ header {
 }
 
 .book__img--wrapper {
-    margin-bottom: 8px;
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
 }
 
 .book__img {
@@ -270,69 +330,108 @@ header {
 }
 
 .book:hover .book__img {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .book__title {
-    font-size: 20px;
-    margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 .book__title:hover {
-    text-decoration: underline;
-    cursor: no-drop;
+  cursor: no-drop;
 }
 
 .book__price--normal {
-    text-decoration: line-through;
-    padding-right: 6px;
-    color:#bfbfbf;
+  text-decoration: line-through;
+  padding-right: 6px;
+  color: #bfbfbf;
 }
 
 .book__rating {
-    color: #fabf2a;
-    margin-bottom: 8px;
+  color: #fabf2a;
+  margin-bottom: 8px;
 }
 
 /* RECENT BOOKS*/
 
 #recent {
-    height: 130vh;
-    padding-top: 50px;
+  padding: 50px 0;
 }
 
 /* EXPLORE */
 
 #explore {
-    background-color:  rgba(115, 66, 214, 0.1);
+  background-color: rgba(115, 66, 214, 0.1);
 }
 
 /* FOOTER */
 
 footer {
-    background-color: #242424;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer__logo {
-    width: 160px;
-    filter: grayscale(1) invert(1);
-    margin-bottom: 16px;
+  display: flex;
+  width: 160px;
+  filter: grayscale(1) invert(1);
 }
 
 .footer__list {
-    margin-bottom: 16px;
+  margin: 20px 0 24px 0;
 }
 
 .footer__link,
 .footer__copyright {
-    color: white;
-    text-decoration: none;
-    padding: 0 24px;
+  color: white;
+  padding: 0 24px;
 }
 
-.footer__link:hover {
-    text-decoration: underline;
+/* SMALL PHONES, TABLETS, LARGE PHONES */
+
+@media (max-width: 768px) {
+  .header__description {
+    padding: 0 24px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+
+  .book {
+    width: 50%;
+  }
+
 }
+
+/* SMALL PHONES, LARGE PHONES */
+
+@media (max-width: 550px) {
+  .nav__links {
+    display: none;
+  }
+
+  .btn__menu {
+    display: block;
+  }
+
+  .highlight {
+    width: 100%;
+  }
+
+  .highlight:not(:last-child) {
+      margin-bottom: 24px;
+  }
+}
+
